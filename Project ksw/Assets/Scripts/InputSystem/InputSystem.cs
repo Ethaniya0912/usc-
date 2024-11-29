@@ -11,7 +11,7 @@ namespace KSW
         public Vector2 Movement => movement;
         public Vector2 Look => look;
 
-        public bool IsLeftShift => IsLeftShift;
+        public bool IsLeftShift => isLeftShift;
 
         private Vector2 movement;
         private Vector2 look;
