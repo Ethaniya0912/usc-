@@ -32,7 +32,7 @@ namespace KSW
         public LayerMask groundLayers;
 
         //Freefall ¿ë
-        private double fallingspeed = 0.1;
+        private float fallingspeed = 0.05f;
 
         public bool IsRun { get; set; } = false;
 
@@ -46,8 +46,8 @@ namespace KSW
         {
             runningBlend = Mathf.Lerp(runningBlend, IsRun ? 1f : 0f, Time.deltaTime * 10f);
 
-            CheckGround();
-            FreeFall();
+            //CheckGround();
+            //FreeFall();
 
             characterAnimator.SetFloat("Speed", speed);
             characterAnimator.SetFloat("Armed", armed);
@@ -64,13 +64,13 @@ namespace KSW
 
             Vector3 movement = Vector3.zero;
 
-            if(input.magnitude > 0f)
-            {
-                targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + yAxisAngle;
-                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref rotationSpeed, 0.1f);
-                transform.rotation = Quaternion.Euler(0f, rotation, 0f);
-                //transform.rotation = Quaternion.Euler(0f, rotation, 0f);
-            }
+            //if(input.magnitude > 0f)
+            //{
+            //    targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + yAxisAngle;
+            //    float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref rotationSpeed, 0.1f);
+            //    transform.rotation = Quaternion.Euler(0f, rotation, 0f);
+            //    //transform.rotation = Quaternion.Euler(0f, rotation, 0f);
+            //}
 
             movement = transform.forward * speed;
             movement.y = verticalVelocity;
@@ -101,7 +101,8 @@ namespace KSW
         {
             if(!isGrounded)
             {
-                verticalVelocity = Mathf.Lerp(verticalVelocity, -9.8f, (Time.deltaTime * fallingspeed)); 
+                verticalVelocity = Mathf.Lerp(verticalVelocity, -9.8f, (Time.deltaTime * fallingspeed));
+                Debug.Log(verticalVelocity);
             }
             else
             {
