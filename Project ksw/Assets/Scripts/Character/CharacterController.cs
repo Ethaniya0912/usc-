@@ -30,6 +30,12 @@ namespace KSW
             character.Move(InputSystem.Instance.Movement, Camera.main.transform.eulerAngles.y);
 
             character.IsRun = InputSystem.Instance.IsLeftShift;
+
+            if (character.IsArmed)
+            {
+                character.Rotate(InputSystem.Instance.Look.x);
+                character.AimingPoint = CameraSystem.Instance.AimingPoint;
+            }
         }
 
         private void LateUpdate()

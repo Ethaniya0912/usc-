@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 namespace KSW
 {
@@ -8,6 +9,7 @@ namespace KSW
     {
         public Animator characterAnimator;
         public UnityEngine.CharacterController unityCharacterController;
+        public Rig aimRig;
         //public RigBuilder rigBuilder;
         public Transform cameraPivot;
         public Transform upper;
@@ -23,6 +25,18 @@ namespace KSW
         public float rotationSpeed = 0.1f;
         public float followDelay = 0.01f;
         Quaternion currentRotation;
+
+        // bool 상태들
+        public bool IsArmed { get; set; } = true;
+
+        public Vector3 AimingPoint
+        {
+            get => aimingPointTransform.position;
+            set => aimingPointTransform.position = value;
+        }
+
+        // IK 및 Socket 등 용.
+        public Transform aimingPointTransform;
 
         //CheckGround 용
         private float verticalVelocity = 0f;
@@ -64,13 +78,13 @@ namespace KSW
 
             Vector3 movement = Vector3.zero;
 
-            //if(input.magnitude > 0f)
-            //{
-            //    targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + yAxisAngle;
-            //    float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref rotationSpeed, 0.1f);
-            //    transform.rotation = Quaternion.Euler(0f, rotation, 0f);
-            //    //transform.rotation = Quaternion.Euler(0f, rotation, 0f);
-            //}
+            if(input.magnitude > 0f)
+            {
+                targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + yAxisAngle;
+                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref rotationSpeed, 0.1f);
+                transform.rotation = Quaternion.Euler(0f, rotation, 0f);
+                //transform.rotation = Quaternion.Euler(0f, rotation, 0f);
+            }
 
             movement = transform.forward * speed;
             movement.y = verticalVelocity;

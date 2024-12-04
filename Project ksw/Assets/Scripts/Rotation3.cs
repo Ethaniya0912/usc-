@@ -24,7 +24,7 @@ namespace KSW
         void Update()
         {
             RotationUpperBody();
-            //FollowingUpperBody();
+            FollowingUpperBody();
         }
 
         // 상체 회전
