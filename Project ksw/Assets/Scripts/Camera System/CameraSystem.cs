@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace KSW
 {
@@ -40,7 +41,7 @@ namespace KSW
             // Aiming Point 계산
             // ScreenPointToRay 는 마우스가 도달하는 곳으로 정확히 따라감. Ray를 쏘아 맞닿은 부분에
             // 도달하는 식이여서, 해당 지점의 벡터까지 잘 잡음. 굳.
-            Vector3 ScreenPoint = new Vector3(Input.mousePosition.x, neck.transform.position.y, 0 /*Input.mousePosition.z*/);
+            Vector3 ScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
             Ray ray = Camera.main.ScreenPointToRay(ScreenPoint);
             //Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 1f));
             if (Physics.Raycast(ray, out RaycastHit hitInfo, 1000f, aimingLayerMask, QueryTriggerInteraction.Ignore))
@@ -49,7 +50,7 @@ namespace KSW
             }
             else
             {
-                AimingPoint = ray.GetPoint(100f);
+                AimingPoint = Vector3.zero;
             }
         }
     }

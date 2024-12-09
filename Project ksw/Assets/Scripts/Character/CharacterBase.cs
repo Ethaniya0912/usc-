@@ -108,9 +108,23 @@ namespace KSW
             unityCharacterController.Move(movement * Time.deltaTime * moveSpeed);
         }
 
+        public void RotateToTargetPoint(Vector3 targetPoint)
+        {
+            //direction은 targetPoint(마우스커서가 갈 지점)에서 트랜스폼의 포지션을 빼줄 것
+            // 둘 사이의 각도를 제거해주기 위한 벡터를 하나 잡아줌.
+            Vector3 direction = targetPoint - transform.position;
+            direction.y = 0f; // 이걸 안해주면 허리가 승천함.
+
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            //transform.rotation 값은 Quaternion 값으로 처리되어있기때문에, Euler 값인 Vector3값등을 바로 던져주면 안됨.
+            //즉, 위에 있는 Quaternion 값은 밑에 transform.rotation값에 대입해주기 위해서 Quaternioin으로 변환해준 다음에 대입한 것임.
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10 * Time.deltaTime);
+        }
+
         public void Rotate(float angle)
         {
-            float rotation = /*transform.rotation.eulerAngles.y*/ + angle;
+            //private float delayedRotationSpeed = rotationSpeed * Time.deltaTime / followDelay;
+            float rotation = Mathf.Lerp(transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.y + angle, Time.deltaTime * 10);
             transform.rotation = Quaternion.Euler(0, rotation, 0);
         }
 
@@ -129,7 +143,7 @@ namespace KSW
 
         public void FreeFall()
         {
-            if(!isGrounded)
+            if (!isGrounded)
             {
                 verticalVelocity = Mathf.Lerp(verticalVelocity, -9.8f, (Time.deltaTime * fallingspeed));
                 Debug.Log(verticalVelocity);

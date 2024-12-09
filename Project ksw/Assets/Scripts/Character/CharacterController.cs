@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace KSW
 {
@@ -35,11 +37,8 @@ namespace KSW
 
             if (character.IsArmed)
             {
-                //character.Rotate(InputSystem.Instance.Look.x);
                 character.AimingPoint = CameraSystem.Instance.AimingPoint;
-                character.Rotate(character.AimingPoint.x);
-                Debug.Log(character.AimingPoint + "AimingPoint.x");
-                Debug.Log(character.transform.eulerAngles.y + "Transform y");
+                character.RotateToTargetPoint(CameraSystem.Instance.AimingPoint);
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -49,12 +48,6 @@ namespace KSW
                     CommandIdle();
                 }
                 character.SetArmed(!character.IsArmed);
-
-                //if(character.IsArmed)
-                //{
-                //    float differAngle = Camera.main.transform.eulerAngles.y - character.transform.eulerAngles.y;
-                //    character.Rotate(differAngle);
-                //}
             }
         }
 
