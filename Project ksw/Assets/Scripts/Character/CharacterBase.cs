@@ -110,7 +110,7 @@ namespace KSW
 
         public void Rotate(float angle)
         {
-            float rotation = transform.rotation.eulerAngles.y + angle;
+            float rotation = /*transform.rotation.eulerAngles.y*/ + angle;
             transform.rotation = Quaternion.Euler(0, rotation, 0);
         }
 

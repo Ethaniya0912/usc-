@@ -35,8 +35,11 @@ namespace KSW
 
             if (character.IsArmed)
             {
-                character.Rotate(InputSystem.Instance.Look.x);
+                //character.Rotate(InputSystem.Instance.Look.x);
                 character.AimingPoint = CameraSystem.Instance.AimingPoint;
+                character.Rotate(character.AimingPoint.x);
+                Debug.Log(character.AimingPoint + "AimingPoint.x");
+                Debug.Log(character.transform.eulerAngles.y + "Transform y");
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -47,11 +50,11 @@ namespace KSW
                 }
                 character.SetArmed(!character.IsArmed);
 
-                if(character.IsArmed)
-                {
-                    float differAngle = Camera.main.transform.eulerAngles.y - character.transform.eulerAngles.y;
-                    character.Rotate(differAngle);
-                }
+                //if(character.IsArmed)
+                //{
+                //    float differAngle = Camera.main.transform.eulerAngles.y - character.transform.eulerAngles.y;
+                //    character.Rotate(differAngle);
+                //}
             }
         }
 
