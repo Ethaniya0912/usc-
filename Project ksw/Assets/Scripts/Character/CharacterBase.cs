@@ -55,6 +55,7 @@ namespace KSW
         {
             characterAnimator = GetComponent<Animator>();
             unityCharacterController = GetComponent<UnityEngine.CharacterController>();
+            characterAnimator.SetLayerWeight(2, 0);
         }
 
         private void Update()
@@ -121,12 +122,12 @@ namespace KSW
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 10 * Time.deltaTime);
         }
 
-        public void Rotate(float angle)
-        {
-            //private float delayedRotationSpeed = rotationSpeed * Time.deltaTime / followDelay;
-            float rotation = Mathf.Lerp(transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.y + angle, Time.deltaTime * 10);
-            transform.rotation = Quaternion.Euler(0, rotation, 0);
-        }
+        //public void Rotate(float angle)
+        //{
+        //    //private float delayedRotationSpeed = rotationSpeed * Time.deltaTime / followDelay;
+        //    float rotation = Mathf.Lerp(transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.y + angle, Time.deltaTime * 10);
+        //    transform.rotation = Quaternion.Euler(0, rotation, 0);
+        //}
 
         public void CheckGround()
         {
@@ -157,6 +158,7 @@ namespace KSW
         public void SetArmed(bool isArmed)
         {
             IsArmed = isArmed;
+            characterAnimator.SetLayerWeight(2, 1);
             if (IsArmed)
             {
                 characterAnimator.SetTrigger("Equip Trigger");
@@ -171,7 +173,7 @@ namespace KSW
         {
             if (IsArmed)
             {
-                characterAnimator.SetBool("AttackTriggerBool", true);
+                characterAnimator.SetBool("StanceBool", true);
             }
 
         }
@@ -180,7 +182,7 @@ namespace KSW
         {
             if (IsArmed)
             {
-                characterAnimator.SetBool("AttackTriggerBool", false);
+                characterAnimator.SetBool("StanceBool", false);
             }
         }
     }
