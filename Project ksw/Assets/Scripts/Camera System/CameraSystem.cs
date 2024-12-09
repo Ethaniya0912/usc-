@@ -20,6 +20,8 @@ namespace KSW
         private CameraType currentCameraType = CameraType.Ortho;
         private bool isZoom = false;
 
+        public Transform neck;
+
         public void SetCameraFollowTarget(Transform target)
         {
             orthoCamera.Follow = target;
@@ -38,7 +40,8 @@ namespace KSW
             // Aiming Point 계산
             // ScreenPointToRay 는 마우스가 도달하는 곳으로 정확히 따라감. Ray를 쏘아 맞닿은 부분에
             // 도달하는 식이여서, 해당 지점의 벡터까지 잘 잡음. 굳.
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 ScreenPoint = new Vector3(Input.mousePosition.x, neck.transform.position.y, 0 /*Input.mousePosition.z*/);
+            Ray ray = Camera.main.ScreenPointToRay(ScreenPoint);
             //Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 1f));
             if (Physics.Raycast(ray, out RaycastHit hitInfo, 1000f, aimingLayerMask, QueryTriggerInteraction.Ignore))
             {

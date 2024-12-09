@@ -23,6 +23,8 @@ namespace KSW
         private void Start()
         {
             CameraSystem.Instance.SetCameraFollowTarget(character.cameraPivot);
+            InputSystem.Instance.OnClickLeftMouseButton += CommandAttack;
+            InputSystem.Instance.OnClickRightMouseButton += CommandIdle;
         }
 
         private void Update()
@@ -36,11 +38,26 @@ namespace KSW
                 character.Rotate(InputSystem.Instance.Look.x);
                 character.AimingPoint = CameraSystem.Instance.AimingPoint;
             }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                if (character.IsArmed)
+                {
+                    CommandIdle();
+                }
+                character.SetArmed(!character.IsArmed);
+
+                if(character.IsArmed)
+                {
+                    float differAngle = Camera.main.transform.eulerAngles.y - character.transform.eulerAngles.y;
+                    character.Rotate(differAngle);
+                }
+            }
         }
 
         private void LateUpdate()
         {
-            CameraRotation();
+            //CameraRotation();
         }
 
         private void CameraRotation()
@@ -64,6 +81,16 @@ namespace KSW
             if (lfAngle < -360f) lfAngle += 360f;
             if (lfAngle > 360f) lfAngle -= 360f;
             return Mathf.Clamp(lfAngle, lfMin, lfMax);
+        }
+
+        private void CommandAttack()
+        {
+            character.Attack();
+        }
+
+        private void CommandIdle()
+        {
+            character.Idle();
         }
     }
 }

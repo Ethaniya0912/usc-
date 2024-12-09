@@ -19,6 +19,8 @@ namespace KSW
         private bool isShowCursor = false;
 
         public System.Action OnClickSpace;
+        public System.Action OnClickLeftMouseButton;
+        public System.Action OnClickRightMouseButton;
 
         private void Awake()
         {
@@ -32,6 +34,15 @@ namespace KSW
 
         private void Update()
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                OnClickLeftMouseButton?.Invoke();
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                OnClickRightMouseButton?.Invoke();
+            }
             float inputX = Input.GetAxis("Horizontal");
             float inputY = Input.GetAxis("Vertical");
             movement = new Vector2(inputX, inputY);
