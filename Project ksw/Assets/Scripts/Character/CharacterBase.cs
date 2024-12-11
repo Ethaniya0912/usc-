@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -13,6 +14,10 @@ namespace KSW
         //public RigBuilder rigBuilder;
         public Transform cameraPivot;
         public Transform upper;
+
+        //래그돌용 콜라이더
+        public Collider[] ragdollColliders;
+        public Rigidbody[] ragdollRigidbodies;
 
         public float speed;
         public float armed;
@@ -41,13 +46,13 @@ namespace KSW
 
         //CheckGround 용
         private float verticalVelocity = 0f;
-        private bool isGrounded = false;
+        private bool isGrounded = true;
         public float groundOffset = 0.1f;
         public float checkRadius = 0.1f;
         public LayerMask groundLayers;
 
         //Freefall 용
-        private float fallingspeed = 0.05f;
+        private float fallingspeed = 0.4f;
 
         public bool IsRun { get; set; } = false;
 
@@ -56,6 +61,14 @@ namespace KSW
             characterAnimator = GetComponent<Animator>();
             unityCharacterController = GetComponent<UnityEngine.CharacterController>();
             characterAnimator.SetLayerWeight(2, 0);
+
+            Transform hipTransform = characterAnimator.GetBoneTransform(HumanBodyBones.Hips);
+
+            //래그돌 콜라이더, 리지드바디 컴포넌트 불러오기.
+            ragdollColliders = hipTransform.GetComponentsInChildren<Collider>();
+            ragdollRigidbodies = hipTransform.GetComponentsInChildren<Rigidbody>();
+
+            SetActiveRagdool(false);
         }
 
         private void Update()
@@ -66,8 +79,8 @@ namespace KSW
             armed = Mathf.Lerp(armed, IsArmed ? 1f : 0f, Time.deltaTime * 10);
             runningBlend = Mathf.Lerp(runningBlend, IsRun ? 1f : 0f, Time.deltaTime * 10f);
 
-            //CheckGround();
-            //FreeFall();
+            CheckGround();
+            FreeFall();
 
 
             characterAnimator.SetFloat("Speed", speed);
@@ -136,8 +149,11 @@ namespace KSW
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.distance);
-                if (hit.distance > 5) isGrounded = false;
-                //else isGrounded = true;
+                if (hit.distance > 0.3)
+                {
+                    isGrounded = false;
+                }
+                else isGrounded = true;
             }
             //isGrounded = Physics.SphereCast(ray, checkRadius, 0.1f, groundLayers);
         }
@@ -148,10 +164,13 @@ namespace KSW
             {
                 verticalVelocity = Mathf.Lerp(verticalVelocity, -9.8f, (Time.deltaTime * fallingspeed));
                 Debug.Log(verticalVelocity);
+                if (verticalVelocity < -2) SetActiveRagdool(true);
             }
             else
             {
                 verticalVelocity = 0f;
+                //SetActiveRagdool(false);
+                //characterAnimator.SetTrigger("GetBackUp");
             }
         }
 
@@ -183,6 +202,15 @@ namespace KSW
             if (IsArmed)
             {
                 characterAnimator.SetBool("StanceBool", false);
+            }
+        }
+
+        public void SetActiveRagdool(bool isActive)
+        {
+            characterAnimator.enabled = !isActive;
+            for(int i = 0; i < ragdollRigidbodies.Length; i++)
+            {
+                ragdollRigidbodies[i].isKinematic = !isActive;
             }
         }
     }
