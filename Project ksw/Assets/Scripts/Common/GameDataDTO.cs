@@ -10,7 +10,13 @@ namespace USC
     [System.Serializable]
     public class CharacterDataDTO : GameDataDTO
     {
-        public float HP;
+        public float Blood;
+        public float Head;
+        public float Chest;
+        public float LeftArm;
+        public float RightArm;
+        public float LeftLeg;
+        public float RightLeg;
         public float SP;
 
         public float WalkSpeed = 1f;

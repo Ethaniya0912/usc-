@@ -6,14 +6,7 @@ namespace USC
 {
     public enum EffectType
     {
-        Muzzle_01,
-        Muzzle_02,
-
-        Impact_Wood,
-        Impact_Metal,
-        Impact_Concrete,
-        Impact_Stone,
-        Impact_Dirt,
+        HitBlood,
     }
 
     [System.Serializable]

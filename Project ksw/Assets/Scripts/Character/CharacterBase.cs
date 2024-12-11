@@ -6,7 +6,7 @@ using UnityEngine.Animations.Rigging;
 
 namespace KSW
 {
-    public class CharacterBase : MonoBehaviour
+    public class CharacterBase : MonoBehaviour, IDamage
     {
         public Animator characterAnimator;
         public UnityEngine.CharacterController unityCharacterController;
@@ -55,6 +55,9 @@ namespace KSW
         private float fallingspeed = 0.4f;
 
         public bool IsRun { get; set; } = false;
+
+        //Damage Àû¿ë¿ë
+        public System.Action<float, float> OnDamaged;
 
         private void Awake()
         {
@@ -148,7 +151,7 @@ namespace KSW
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.distance);
+                //Debug.Log(hit.distance);
                 if (hit.distance > 0.3)
                 {
                     isGrounded = false;
@@ -208,10 +211,18 @@ namespace KSW
         public void SetActiveRagdool(bool isActive)
         {
             characterAnimator.enabled = !isActive;
-            for(int i = 0; i < ragdollRigidbodies.Length; i++)
+            //unityCharacterController.enabled = !isActive;
+            for (int i = 0; i < ragdollRigidbodies.Length; i++)
             {
                 ragdollRigidbodies[i].isKinematic = !isActive;
             }
+        }
+
+        public void ApplyDamage(float damage)
+        {
+        //    curStat.CharacterData.Hp -= damage;
+        //    
+        //    onDamaged?.Invoke(maxStat.CharacterData.Hp, curStat.CharacterData.Hp);
         }
     }
 }
