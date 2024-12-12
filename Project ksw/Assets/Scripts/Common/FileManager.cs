@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 
-namespace USC
+namespace KSW
 {
     public class FileManager : MonoBehaviour
     {

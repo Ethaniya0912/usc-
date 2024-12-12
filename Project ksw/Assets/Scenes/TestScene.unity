@@ -616,10 +616,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8867372405804473313, guid: d3f87f114f86a3b4f88996e8d2e99fd8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2784561854437792545, guid: d3f87f114f86a3b4f88996e8d2e99fd8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 851933054}
   m_SourcePrefab: {fileID: 100100000, guid: d3f87f114f86a3b4f88996e8d2e99fd8, type: 3}
 --- !u!4 &343740205 stripped
 Transform:
@@ -1262,6 +1269,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &851933051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2784561854437792545, guid: d3f87f114f86a3b4f88996e8d2e99fd8, type: 3}
+  m_PrefabInstance: {fileID: 275639424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &851933054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851933051}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2174b9fd01ea34ea22474de2f3a7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAnimator: {fileID: 0}
+  unityCharacterController: {fileID: 0}
+  aimRig: {fileID: 0}
+  cameraPivot: {fileID: 0}
+  upper: {fileID: 0}
+  ragdollColliders: []
+  ragdollRigidbodies: []
+  speed: 0
+  armed: 0
+  horizontal: 0
+  vertical: 0
+  runningBlend: 0
+  attackTriggerBool: 0
+  moveSpeed: 3
+  targetRotation: 0
+  rotationSpeed: 0.1
+  followDelay: 0.01
+  maxStat: {fileID: 11400000, guid: f52d527353ace2f4899ce73268d9d7e1, type: 2}
+  curStat: {fileID: 11400000, guid: f52d527353ace2f4899ce73268d9d7e1, type: 2}
+  aimingPointTransform: {fileID: 0}
+  groundOffset: 0.1
+  checkRadius: 0.1
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &915593364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,6 +1578,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5769025857125792433, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
+      propertyPath: curStat
+      value: 
+      objectReference: {fileID: 11400000, guid: f52d527353ace2f4899ce73268d9d7e1, type: 2}
+    - target: {fileID: 5769025857125792433, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
+      propertyPath: maxStat
+      value: 
+      objectReference: {fileID: 11400000, guid: f52d527353ace2f4899ce73268d9d7e1, type: 2}
     - target: {fileID: 5769025857125792433, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
       propertyPath: m_Enabled
       value: 1

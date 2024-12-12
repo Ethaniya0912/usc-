@@ -7,7 +7,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace USC
+namespace KSW
 {
     // BootStrapper : 에디터상에서 Main을 타고오지않고, 실행했을 경우에 대한 시스템 초기화 도우미 클래스
     public class BootStrapper : MonoBehaviour

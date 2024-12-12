@@ -6,7 +6,7 @@ namespace KSW
 {
     public interface IDamage
     {
-        public void ApplyDamage(float damage);
+        public void ApplyDamage(float damage, CharacterLimbLists limbLists);
     }
 }
 

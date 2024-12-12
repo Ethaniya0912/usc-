@@ -32,6 +32,10 @@ namespace KSW
         public float followDelay = 0.01f;
         Quaternion currentRotation;
 
+        //체력등
+        public CharacterStatData maxStat;
+        public CharacterStatData curStat;
+
         // bool 상태들
         public bool IsArmed { get; set; } = false;
 
@@ -218,11 +222,40 @@ namespace KSW
             }
         }
 
-        public void ApplyDamage(float damage)
+        //CharacterLimbLists limb = MeleeWeaponBase.HitLimbType;
+
+        public void ApplyDamage(float damage, CharacterLimbLists hitLimbType)
         {
-        //    curStat.CharacterData.Hp -= damage;
-        //    
-        //    onDamaged?.Invoke(maxStat.CharacterData.Hp, curStat.CharacterData.Hp);
+            //curStat.CharacterData.Blood -= damage;
+            
+            OnDamaged?.Invoke(maxStat.CharacterData.Blood, curStat.CharacterData.Blood);
+            //Debug.Log(curStat.CharacterData.Blood);
+            //MeleeWeaponBase hitobj;
+
+            //CharacterLimbLists limb = MeleeWeaponBase.Owner;
+            //var limb = hitobj.GetComponent<MeleeWeaponBase>.HitLimbType; 
+            //
+            if (hitLimbType == CharacterLimbLists.Head)
+             {
+                 curStat.CharacterData.Head -= damage;
+                Debug.Log( "Head" + curStat.CharacterData.Head);
+             }
+            else if (hitLimbType == CharacterLimbLists.Chest)
+             {
+                 curStat.CharacterData.Chest -= damage;
+                Debug.Log( "Chest" + curStat.CharacterData.Chest);
+            }
+            else if (hitLimbType == CharacterLimbLists.LeftArm)
+             {
+                 curStat.CharacterData.LeftArm -= damage;
+                Debug.Log("LeftArm"+curStat.CharacterData.LeftArm);
+            }
+            else if (hitLimbType == CharacterLimbLists.RightArm)
+             {
+                 curStat.CharacterData.RightArm -= damage;
+                Debug.Log("RightArm"+curStat.CharacterData.RightArm);
+            }
+          
         }
     }
 }

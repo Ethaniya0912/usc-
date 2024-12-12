@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace USC
+namespace KSW
 {
     // 주의사항 : SceneType Enum 값은 실제, Scene 파일의 이름과 동일해야 한다.
     public enum SceneType

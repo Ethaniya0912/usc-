@@ -8,7 +8,7 @@ using UnityEditor;
 
 using UnityEngine;
 
-namespace USC
+namespace KSW
 {
     public class SingletonBase<T> : MonoBehaviour where T : class
     {

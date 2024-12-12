@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace USC
+namespace KSW
 {
     [System.Serializable]
     public class GameDataDTO { }

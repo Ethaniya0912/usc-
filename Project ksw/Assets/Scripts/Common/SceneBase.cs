@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace USC
+namespace KSW
 {
     public abstract class SceneBase : MonoBehaviour
     {

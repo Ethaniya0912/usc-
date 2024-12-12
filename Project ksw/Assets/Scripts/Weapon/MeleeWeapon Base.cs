@@ -16,6 +16,13 @@ namespace KSW
         private Cinemachine.CinemachineImpulseSource impulseSource;
         private CharacterBase owner; // 무기를 소유한 캐릭터 객체.
 
+        public CharacterLimbLists HitLimbType
+        {
+            get => hitLimbType;
+            set => hitLimbType = value;
+        }
+        private CharacterLimbLists hitLimbType;
+
         private void OnTriggerEnter(Collider other)
         {
             Debug.Log(
@@ -23,11 +30,11 @@ namespace KSW
                 $"name : <color=red>{other.gameObject.name}</color>");
             if (other.gameObject.layer == LayerMask.NameToLayer("HitScanner"))
             {
-                /*Quaternion rotation = Quaternion.LookRotation(other.ClosestPoint);*/
-                EffectType targetEffectType = EffectType.HitBlood;
-                Vector3 position = other.ClosestPoint( other.transform.position );
-                Quaternion rotation = Quaternion.LookRotation(other.ClosestPoint(other.transform.position ));
-                EffectManager.Instance.CreateEffect(targetEffectType, position, rotation);
+                ///*Quaternion rotation = Quaternion.LookRotation(other.ClosestPoint);*/
+                //EffectType targetEffectType = EffectType.HitBlood;
+                //Vector3 position = other.ClosestPoint( other.transform.position );
+                //Quaternion rotation = Quaternion.LookRotation(other.ClosestPoint(other.transform.position ));
+                //EffectManager.Instance.CreateEffect(targetEffectType, position, rotation);
 
                 if (other.transform.root.TryGetComponent(out IDamage damageInterface))
                 {
@@ -36,8 +43,35 @@ namespace KSW
                     {
                         damageMultiple = multiplier.DamageMultiplier;
                     }
-                    damageInterface.ApplyDamage(10 * damageMultiple);
+
+                    if (other.gameObject.name.Contains("Head"))
+                    {
+                        hitLimbType = CharacterLimbLists.Head;
+                    }
+
+                    else if (other.gameObject.name.Contains("Chest"))
+                    {
+                        hitLimbType = CharacterLimbLists.Chest;
+                    }
+                    else if (other.gameObject.name.Contains("Shoulder_L") || other.gameObject.name.Contains("Elbow_L"))
+                    {
+                        hitLimbType = CharacterLimbLists.LeftArm;
+                    }
+                    else if (other.gameObject.name.Contains("Shoulder_R") || other.gameObject.name.Contains("Elbow_R"))
+                    {
+                        hitLimbType = CharacterLimbLists.RightArm;
+                    }
+                    else if (other.gameObject.name.Contains("UpperLeg_L"))
+                    {
+                        hitLimbType = CharacterLimbLists.LeftLeg;
+                    }
+                    else if (other.gameObject.name.Contains("UpperLeg_R"))
+                    {
+                        hitLimbType = CharacterLimbLists.RightLeg;
+                    }
+                    damageInterface.ApplyDamage(10 * damageMultiple, hitLimbType);
                 }
+                Debug.Log(hitLimbType.ToString());
             }
         }
 

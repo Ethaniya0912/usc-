@@ -1,4 +1,4 @@
-namespace USC
+namespace KSW
 {
     public enum UIList
     {
