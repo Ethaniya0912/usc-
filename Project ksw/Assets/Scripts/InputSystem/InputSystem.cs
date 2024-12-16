@@ -21,6 +21,7 @@ namespace KSW
         public System.Action OnClickSpace;
         public System.Action OnClickLeftMouseButton;
         public System.Action OnClickRightMouseButton;
+        public System.Action OnClickUpMouseWheel;
 
         private void Awake()
         {
@@ -42,6 +43,11 @@ namespace KSW
             if (Input.GetMouseButtonDown(1))
             {
                 OnClickRightMouseButton?.Invoke();
+            }
+
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+                OnClickUpMouseWheel?.Invoke();
             }
             float inputX = Input.GetAxis("Horizontal");
             float inputY = Input.GetAxis("Vertical");

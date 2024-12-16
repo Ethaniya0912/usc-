@@ -42,13 +42,24 @@ namespace KSW
                     if (other.gameObject.TryGetComponent(out DamageMultiflier multiplier))
                     {
                         damageMultiple = multiplier.DamageMultiplier;
+
+                        switch (multiplier.HumanBodyBones)
+                        {
+                            case HumanBodyBones.Head:
+                                hitLimbType = CharacterLimbLists.Head;
+                                break;
+                            case HumanBodyBones.Spine:
+                            case HumanBodyBones.UpperChest:
+                            case HumanBodyBones.Chest:
+                                hitLimbType = CharacterLimbLists.Chest;
+                                break;
+                        }
                     }
 
                     if (other.gameObject.name.Contains("Head"))
                     {
                         hitLimbType = CharacterLimbLists.Head;
                     }
-
                     else if (other.gameObject.name.Contains("Chest"))
                     {
                         hitLimbType = CharacterLimbLists.Chest;
@@ -69,6 +80,7 @@ namespace KSW
                     {
                         hitLimbType = CharacterLimbLists.RightLeg;
                     }
+
                     damageInterface.ApplyDamage(10 * damageMultiple, hitLimbType);
                 }
                 Debug.Log(hitLimbType.ToString());

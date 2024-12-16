@@ -25,8 +25,9 @@ namespace KSW
         private void Start()
         {
             CameraSystem.Instance.SetCameraFollowTarget(character.cameraPivot);
-            InputSystem.Instance.OnClickLeftMouseButton += CommandAttack;
+            InputSystem.Instance.OnClickLeftMouseButton += CommandAttackStance;
             InputSystem.Instance.OnClickRightMouseButton += CommandIdle;
+            InputSystem.Instance.OnClickUpMouseWheel += CommandAttackPoke;
         }
 
         private void Update()
@@ -79,9 +80,14 @@ namespace KSW
             return Mathf.Clamp(lfAngle, lfMin, lfMax);
         }
 
-        private void CommandAttack()
+        private void CommandAttackStance()
         {
-            character.Attack();
+            character.AttackStance();
+        }
+
+        private void CommandAttackPoke()
+        {
+            character.AttackPoke();
         }
 
         private void CommandIdle()

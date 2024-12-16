@@ -24,7 +24,7 @@ namespace KSW
         public float horizontal;
         public float vertical;
         public float runningBlend;
-        public bool attackTriggerBool;
+        public bool attackTrigger;
 
         public float moveSpeed = 3f;
         public float targetRotation = 0f;
@@ -170,7 +170,7 @@ namespace KSW
             if (!isGrounded)
             {
                 verticalVelocity = Mathf.Lerp(verticalVelocity, -9.8f, (Time.deltaTime * fallingspeed));
-                Debug.Log(verticalVelocity);
+                //Debug.Log(verticalVelocity);
                 if (verticalVelocity < -2) SetActiveRagdool(true);
             }
             else
@@ -195,7 +195,7 @@ namespace KSW
             }
         }
 
-        public void Attack()
+        public void AttackStance()
         {
             if (IsArmed)
             {
@@ -203,6 +203,27 @@ namespace KSW
             }
 
         }
+
+        public void AttackPoke()
+        {
+            characterAnimator.SetTrigger("AttackPokeTrigger");
+            characterAnimator.SetLayerWeight(1, 1);
+
+            //aimingRig.Weight = 0;
+            //pokeRig.Weight = 1;
+        }
+
+        //public void OnAnimatorIK(int layerIndex)
+        //{
+        //    if (layerIndex == 2)
+        //    {
+        //        var stateInfo = characterAnimator.GetCurrentAnimatorStateInfo(2);
+        //        if (stateInfo.IsName("Poke"))
+        //        {
+        //            characterAnimator.SetIKPosition(AvatarIKGoal.RightHand, );
+        //        }
+        //    }
+        //}
 
         public void Idle()
         {
