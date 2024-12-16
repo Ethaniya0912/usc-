@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Character Stat Data[Player]
   m_EditorClassIdentifier: 
   CharacterData:
-    Blood: -360
+    Blood: 100
     Head: 100
     Chest: 100
-    LeftArm: 100
-    RightArm: 100
+    LeftArm: 70
+    RightArm: -230
     LeftLeg: 100
     RightLeg: 100
     SP: 100
