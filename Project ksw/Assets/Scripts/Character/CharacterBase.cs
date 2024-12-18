@@ -126,7 +126,7 @@ namespace KSW
 
             movement.y = verticalVelocity;
 
-            unityCharacterController.Move(movement * Time.deltaTime * moveSpeed);
+            //unityCharacterController.Move(movement * Time.deltaTime * moveSpeed);
         }
 
         public void RotateToTargetPoint(Vector3 targetPoint)
@@ -207,7 +207,7 @@ namespace KSW
         public void AttackPoke()
         {
             characterAnimator.SetTrigger("AttackPokeTrigger");
-            characterAnimator.SetLayerWeight(1, 1);
+            //characterAnimator.SetLayerWeight(1, 1);
 
             //aimingRig.Weight = 0;
             //pokeRig.Weight = 1;
