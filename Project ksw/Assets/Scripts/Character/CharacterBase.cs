@@ -213,6 +213,11 @@ namespace KSW
             //pokeRig.Weight = 1;
         }
 
+        public void AttackSlash()
+        {
+            characterAnimator.SetTrigger("AttackSlashTrigger");
+        }
+
         //public void OnAnimatorIK(int layerIndex)
         //{
         //    if (layerIndex == 2)
