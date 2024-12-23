@@ -28,12 +28,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131468}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7066527, y: -0.02533751, z: -0.02533751, w: 0.7066527}
-  m_LocalPosition: {x: 40.1, y: 4.6, z: -6}
-  m_LocalScale: {x: 99.99997, y: 99.99998, z: 99.999954}
+  m_LocalRotation: {x: -0.7071068, y: -0.0000013392414, z: -0.0000012908126, w: 0.7071067}
+  m_LocalPosition: {x: 12.519785, y: 4.599989, z: -6.9526157}
+  m_LocalScale: {x: 99.99998, y: 99.99998, z: 99.999954}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6083051082976596453}
+  m_Father: {fileID: 7788864024525455792}
   m_LocalEulerAnglesHint: {x: -90, y: -4.1069946, z: 0}
 --- !u!33 &3393592
 MeshFilter:
@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &191518459598221535
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,7 +828,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7788864024525455792}
-  - {fileID: 465914}
   m_Father: {fileID: 4469864057556095978}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &6877135094116310721
@@ -939,6 +939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &952025406531868205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,6 +1772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &2550061446355437436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,6 +1984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &2720319727826475266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2109,6 +2112,7 @@ Transform:
   - {fileID: 1149990742945391475}
   - {fileID: 147008388350508539}
   - {fileID: 3123072411519340111}
+  - {fileID: 465914}
   m_Father: {fileID: 6083051082976596453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3654051594943069973
@@ -2384,6 +2388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &3890538545518194817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,6 +2584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &4002753905352536939
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,6 +2689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &4021673511489782163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2966,6 +2973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &4607917703558514698
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,6 +3212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &5758204198960217619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,6 +3453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &6064682984665661608
 GameObject:
   m_ObjectHideFlags: 0
@@ -4328,6 +4338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &7837600108363430006
 GameObject:
   m_ObjectHideFlags: 0
@@ -4473,6 +4484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &8003338190636216046
 GameObject:
   m_ObjectHideFlags: 0
@@ -4745,6 +4757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
+  <HumanBodyBones>k__BackingField: 0
 --- !u!1 &8964206416812725274
 GameObject:
   m_ObjectHideFlags: 0
@@ -4885,11 +4898,13 @@ MonoBehaviour:
   horizontal: 0
   vertical: 0
   runningBlend: 0
-  attackTriggerBool: 0
+  attackTrigger: 0
   moveSpeed: 3
   targetRotation: 0
   rotationSpeed: 0.1
   followDelay: 0.01
+  maxStat: {fileID: 0}
+  curStat: {fileID: 0}
   aimingPointTransform: {fileID: 6459719582482001684}
   groundOffset: 0.1
   checkRadius: 0.1
