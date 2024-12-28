@@ -812,6 +812,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d466f1d2575c02f4f9fe37316041e261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input_Que_Is_Active: 0
+  default_Que_Input_Time: 0.35
+  que_Input_Timer: 0
+  que_Input: 0
 --- !u!4 &498495626
 Transform:
   m_ObjectHideFlags: 0
@@ -1357,6 +1361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2174b9fd01ea34ea22474de2f3a7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventoryManager: {fileID: 0}
+  playerEquipmentManager: {fileID: 0}
   characterAnimator: {fileID: 0}
   unityCharacterController: {fileID: 0}
   aimRig: {fileID: 0}
@@ -2214,50 +2220,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 64370003151808260, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 328317410356328176, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
-      propertyPath: <HumanBodyBones>k__BackingField
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 364814743890097202, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
       propertyPath: cameraPivot
       value: 
       objectReference: {fileID: 489645508}
-    - target: {fileID: 1367337622816170387, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
-      propertyPath: <HumanBodyBones>k__BackingField
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379502975922274727, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
-      propertyPath: <HumanBodyBones>k__BackingField
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307680836712634634, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307680836712634634, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5708069698843681314, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
-      propertyPath: <HumanBodyBones>k__BackingField
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 5769025857125792433, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
       propertyPath: cameraPivot
       value: 
       objectReference: {fileID: 489645508}
-    - target: {fileID: 6650550126567368621, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
-      propertyPath: <HumanBodyBones>k__BackingField
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213838214981746712, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
-      propertyPath: m_Weight
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7782013744543003084, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2301,10 +2271,6 @@ PrefabInstance:
     - target: {fileID: 8992266671771069404, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
       propertyPath: m_Name
       value: Character_Knight_02_Black
-      objectReference: {fileID: 0}
-    - target: {fileID: 8992266671771069404, guid: 83431e48bafdc564084a5e1214df1a31, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

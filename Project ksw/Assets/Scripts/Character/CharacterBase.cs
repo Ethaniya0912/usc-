@@ -8,6 +8,11 @@ namespace KSW
 {
     public class CharacterBase : MonoBehaviour, IDamage
     {
+        [Header("Managers")]
+        [HideInInspector] public PlayerInventoryManager playerInventoryManager;
+        [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
+
+
         public Animator characterAnimator;
         public UnityEngine.CharacterController unityCharacterController;
         public Rig aimRig;
@@ -76,6 +81,7 @@ namespace KSW
             ragdollRigidbodies = hipTransform.GetComponentsInChildren<Rigidbody>();
 
             SetActiveRagdool(false);
+            playerInventoryManager = GetComponent<PlayerInventoryManager>();
         }
 
         private void Update()

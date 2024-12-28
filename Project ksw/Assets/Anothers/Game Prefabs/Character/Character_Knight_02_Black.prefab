@@ -100,7 +100,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
-  <HumanBodyBones>k__BackingField: 0
+  <HumanBodyBones>k__BackingField: 15
 --- !u!1 &191518459598221535
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3746504210742107331}
+  - component: {fileID: 586824597923739002}
   m_Layer: 0
   m_Name: Hand_L
   m_TagString: Untagged
@@ -332,6 +333,20 @@ Transform:
   - {fileID: 7587161172112453184}
   m_Father: {fileID: 7328593835921374287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &586824597923739002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220298920762634878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9eef37e886cc9745961c8e15579ad13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlot: 1
+  currentWeaponModel: {fileID: 0}
 --- !u!1 &260850508911189152
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
-  <HumanBodyBones>k__BackingField: 0
+  <HumanBodyBones>k__BackingField: 15
 --- !u!1 &952025406531868205
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,6 +2104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7788864024525455792}
+  - component: {fileID: 8987596125732493051}
   m_Layer: 0
   m_Name: Hand_R
   m_TagString: Untagged
@@ -2115,6 +2131,20 @@ Transform:
   - {fileID: 465914}
   m_Father: {fileID: 6083051082976596453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8987596125732493051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3206348136703998736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9eef37e886cc9745961c8e15579ad13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlot: 0
+  currentWeaponModel: {fileID: 0}
 --- !u!1 &3654051594943069973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,7 +2418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
-  <HumanBodyBones>k__BackingField: 0
+  <HumanBodyBones>k__BackingField: 11
 --- !u!1 &3890538545518194817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,7 +3003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
-  <HumanBodyBones>k__BackingField: 0
+  <HumanBodyBones>k__BackingField: 10
 --- !u!1 &4607917703558514698
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,7 +4787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <DamageMultiplier>k__BackingField: 1
-  <HumanBodyBones>k__BackingField: 0
+  <HumanBodyBones>k__BackingField: 12
 --- !u!1 &8964206416812725274
 GameObject:
   m_ObjectHideFlags: 0
@@ -4805,6 +4835,8 @@ GameObject:
   - component: {fileID: 2657356022596871774}
   - component: {fileID: 364814743890097202}
   - component: {fileID: 17876257958614867}
+  - component: {fileID: 6197421552509127959}
+  - component: {fileID: 4112832360883337354}
   m_Layer: 6
   m_Name: Character_Knight_02_Black
   m_TagString: Untagged
@@ -4844,12 +4876,12 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8992266671771069404}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
   m_Controller: {fileID: 9100000, guid: 271bdec6a15db694a8f7027af8df6b1b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -4886,6 +4918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2174b9fd01ea34ea22474de2f3a7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventoryManager: {fileID: 0}
+  playerEquipmentManager: {fileID: 0}
   characterAnimator: {fileID: 0}
   unityCharacterController: {fileID: 0}
   aimRig: {fileID: 7213838214981746712}
@@ -4977,6 +5011,34 @@ MonoBehaviour:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
+--- !u!114 &6197421552509127959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8992266671771069404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb27a346119cea4db641f6e2617eb79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentRightHandWeapon: {fileID: 11400000, guid: 07adafd83a775e1479e8f925ff6f4a58, type: 2}
+  currentLeftHandWeapon: {fileID: 11400000, guid: 07adafd83a775e1479e8f925ff6f4a58, type: 2}
+--- !u!114 &4112832360883337354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8992266671771069404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f58c8b077e3af6499ab3452e3f385e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHandSlot: {fileID: 0}
+  leftHandSlot: {fileID: 0}
 --- !u!1 &9019120919237915231
 GameObject:
   m_ObjectHideFlags: 0
