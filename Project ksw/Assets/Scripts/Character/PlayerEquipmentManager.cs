@@ -70,7 +70,7 @@ namespace KSW
 
                 rightHandWeaponModel = Instantiate(character.playerInventoryManager.currentRightHandWeapon.weaponModel);
                 rightHandSlot.LoadWeapon(rightHandWeaponModel);
-                rightHandWeaponModel.gameObject.SetActive(true);
+                //rightHandWeaponModel.gameObject.SetActive(true);
             }
         }
 
@@ -80,7 +80,7 @@ namespace KSW
             {
                 leftHandWeaponModel = Instantiate(character.playerInventoryManager.currentLeftHandWeapon.weaponModel);
                 leftHandSlot.LoadWeapon(leftHandWeaponModel);
-                leftHandWeaponModel.gameObject.SetActive(true);
+                //leftHandWeaponModel.gameObject.SetActive(true);
             }
         }
     }

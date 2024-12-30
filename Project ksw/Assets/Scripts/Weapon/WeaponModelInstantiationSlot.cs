@@ -25,6 +25,7 @@ namespace KSW
             weaponModel.transform.localPosition = Vector3.zero;
             weaponModel.transform.localRotation = Quaternion.identity;
             weaponModel.transform.localScale = Vector3.one;
+            //weaponModel.transform.localScale = new Vector3(99,99,99);
         }
     }
 }

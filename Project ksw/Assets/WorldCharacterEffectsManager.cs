@@ -26,7 +26,10 @@ namespace KSW
 
         private void GenerateEffectsIDs()
         {
-
+            for (int i = 0; i < instantEffects.Count; ++i)
+            {
+                instantEffects[i].instantEffectID = i;
+            }
         }
     }
 }
