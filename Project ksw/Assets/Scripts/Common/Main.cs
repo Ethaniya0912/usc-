@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace KSW
 {
@@ -24,6 +25,8 @@ namespace KSW
 
         [SerializeField] private SceneType currentSceneType = SceneType.None;
 
+        private bool isInitialize = false;
+
         private void Start()
         {
             Initialize();
@@ -31,17 +34,27 @@ namespace KSW
 
         public void Initialize()
         {
-            StartCoroutine(MainSystemInitialize());
-        }
+            if (isInitialize)
+                return;
 
-        IEnumerator MainSystemInitialize()
-        {
-            yield return null;
+            isInitialize = true;
 
             // TODO : 각 종 필요한 시스템을 초기화
-            
+            UIManager.Singleton.Initialize();
+            SoundManager.Singleton.Initialize();
+            GameDataModel.Singleton.Initialize();
+            UserDataModel.Singleton.Initialize();
+
             // 첫 실행되는 씬으로 전환 => Title Scene
+#if UNITY_EDITOR
+            Scene activeScene = UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene();
+            if (activeScene.name == "Main")
+            {
+                ChangeScene(SceneType.Title);
+            }
+#else
             ChangeScene(SceneType.Title);
+#endif
         }
 
         public void SystemQuit()
@@ -86,7 +99,7 @@ namespace KSW
             StartCoroutine(ChangeSceneAsync<T>(sceneType, sceneLoadedCallback));
         }
 
-        private IEnumerator ChangeSceneAsync<T>(SceneType sceneType, System.Action sceneLoadedCallback = null) 
+        private IEnumerator ChangeSceneAsync<T>(SceneType sceneType, System.Action sceneLoadedCallback = null)
             where T : SceneBase
         {
             IsOnProgressSceneChanging = true;

@@ -8,5 +8,9 @@ namespace KSW
     {
         public WeaponItem currentRightHandWeapon;
         public WeaponItem currentLeftHandWeapon;
+
+        [Header("Quick Slots")]
+        public WeaponItem[] weaponsInRightHandSlot = new WeaponItem[3];
+        public WeaponItem[] weaponsInLeftHandSlot = new WeaponItem[3];
     }
 }
