@@ -11,7 +11,12 @@ namespace KSW
         [Header("Managers")]
         [HideInInspector] public PlayerInventoryManager playerInventoryManager;
         [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
+        [HideInInspector] public CharacterEffectsManager characterEffectsManager;
 
+        [Header("Status")]
+        public bool isDead = false;
+        //public NetworkVariable<bool> isDead = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermisson.Owner);
+        //위는 네트워크로 작성시.
 
         public Animator characterAnimator;
         public UnityEngine.CharacterController unityCharacterController;
@@ -82,6 +87,7 @@ namespace KSW
 
             SetActiveRagdool(false);
             playerInventoryManager = GetComponent<PlayerInventoryManager>();
+            characterEffectsManager = GetComponent<CharacterEffectsManager>();
         }
 
         private void Update()

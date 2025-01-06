@@ -17,9 +17,9 @@ namespace KSW
 
         [Header("Weapon Base Damage")]
         public int physicalDamage = 0;
-        //public int magicDamage = 0;
-        //public int fireDamage = 0;
-        //public int holyDamage = 0;
+        public int magicDamage = 0;
+        public int fireDamage = 0;
+        public int holyDamage = 0;
 
         [Header("Weapon Poise Damage")]
         public int poiseDamage = 0;

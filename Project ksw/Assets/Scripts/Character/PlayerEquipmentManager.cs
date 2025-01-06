@@ -10,6 +10,9 @@ namespace KSW
         public WeaponModelInstantiationSlot rightHandSlot;
         public WeaponModelInstantiationSlot leftHandSlot;
 
+        [SerializeField] WeaponManager rightWeaponManager;
+        [SerializeField] WeaponManager leftWeaponManager;
+
         //캐릭터의 손에 인스턴스로 불러와줄 게임오브젝트용.
         public GameObject rightHandWeaponModel;
         public GameObject leftHandWeaponModel;
@@ -60,6 +63,7 @@ namespace KSW
             LoadRightWeapon();
         }
         
+        // Right Weapon
         public void LoadRightWeapon()
         {
             if (character.playerInventoryManager.currentRightHandWeapon != null)
@@ -70,10 +74,20 @@ namespace KSW
 
                 rightHandWeaponModel = Instantiate(character.playerInventoryManager.currentRightHandWeapon.weaponModel);
                 rightHandSlot.LoadWeapon(rightHandWeaponModel);
+                rightWeaponManager = rightHandWeaponModel.GetComponent<WeaponManager>();
+                rightWeaponManager.SetWeaponDamage(character, character.playerInventoryManager.currentRightHandWeapon);
                 //rightHandWeaponModel.gameObject.SetActive(true);
+                
+                // 무기 데미지를 할당, 콜라이더에.
             }
         }
 
+        public void SwitchRightWeapon()
+        {
+
+        }
+
+        // Left Weapon
         public void LoadLeftWeapon()
         {
             if (character.playerInventoryManager.currentLeftHandWeapon != null)
@@ -81,7 +95,16 @@ namespace KSW
                 leftHandWeaponModel = Instantiate(character.playerInventoryManager.currentLeftHandWeapon.weaponModel);
                 leftHandSlot.LoadWeapon(leftHandWeaponModel);
                 //leftHandWeaponModel.gameObject.SetActive(true);
+                leftWeaponManager = leftHandWeaponModel.GetComponent<WeaponManager>();
+                leftWeaponManager.SetWeaponDamage(character, character.playerInventoryManager.currentLeftHandWeapon);
+
+                // 무기 데미지를 할당, 콜라이더에.
             }
+        }
+
+        public void SwitchLeftWeapon()
+        {
+
         }
     }
 }

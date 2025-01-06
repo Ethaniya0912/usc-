@@ -55,33 +55,33 @@ namespace KSW
                                 break;
                         }
                     }
-
-                    if (other.gameObject.name.Contains("Head"))
-                    {
-                        hitLimbType = CharacterLimbLists.Head;
-                    }
-                    else if (other.gameObject.name.Contains("Chest"))
-                    {
-                        hitLimbType = CharacterLimbLists.Chest;
-                    }
-                    else if (other.gameObject.name.Contains("Shoulder_L") || other.gameObject.name.Contains("Elbow_L"))
-                    {
-                        hitLimbType = CharacterLimbLists.LeftArm;
-                    }
-                    else if (other.gameObject.name.Contains("Shoulder_R") || other.gameObject.name.Contains("Elbow_R"))
-                    {
-                        hitLimbType = CharacterLimbLists.RightArm;
-                    }
-                    else if (other.gameObject.name.Contains("UpperLeg_L"))
-                    {
-                        hitLimbType = CharacterLimbLists.LeftLeg;
-                    }
-                    else if (other.gameObject.name.Contains("UpperLeg_R"))
-                    {
-                        hitLimbType = CharacterLimbLists.RightLeg;
-                    }
-
                     damageInterface.ApplyDamage(10 * damageMultiple, hitLimbType);
+
+                    //if (other.gameObject.name.Contains("Head"))
+                    //{
+                    //    hitLimbType = CharacterLimbLists.Head;
+                    //}
+                    //else if (other.gameObject.name.Contains("Chest"))
+                    //{
+                    //    hitLimbType = CharacterLimbLists.Chest;
+                    //}
+                    //else if (other.gameObject.name.Contains("Shoulder_L") || other.gameObject.name.Contains("Elbow_L"))
+                    //{
+                    //    hitLimbType = CharacterLimbLists.LeftArm;
+                    //}
+                    //else if (other.gameObject.name.Contains("Shoulder_R") || other.gameObject.name.Contains("Elbow_R"))
+                    //{
+                    //    hitLimbType = CharacterLimbLists.RightArm;
+                    //}
+                    //else if (other.gameObject.name.Contains("UpperLeg_L"))
+                    //{
+                    //    hitLimbType = CharacterLimbLists.LeftLeg;
+                    //}
+                    //else if (other.gameObject.name.Contains("UpperLeg_R"))
+                    //{
+                    //    hitLimbType = CharacterLimbLists.RightLeg;
+                    //}
+
                 }
                 Debug.Log(hitLimbType.ToString());
             }

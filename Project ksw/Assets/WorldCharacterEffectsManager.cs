@@ -8,6 +8,9 @@ namespace KSW
     {
         public static WorldCharacterEffectsManager instance;
 
+        [Header("Damage")]
+        public TakeDamageEffect takeDamageEffect;
+
         // 다양한 이펙트가 있음으로 리스트화 해줌.
         [SerializeField] List<InstantCharacterEffect> instantEffects;
 
