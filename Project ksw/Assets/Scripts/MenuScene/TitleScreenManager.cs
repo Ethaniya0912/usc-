@@ -11,5 +11,11 @@ namespace KSW
         {
             NetworkManager.Singleton.StartHost();
         }
+
+        public void StartNewGame()
+        {
+            StartCoroutine(WorldSaveGameManager.Instance.LoadNewGame());
+        }
     }
 }
+
