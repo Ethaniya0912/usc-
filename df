@@ -1,0 +1,36 @@
+[33me1a24bc3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m HEAD@{0}: commit: v8.7.2.5 git ignore 에 library 추가
+[33mab1b923d[m HEAD@{1}: commit: v8.7.2.4
+[33m9219846a[m HEAD@{2}: commit: v8.7.2.3
+[33mdeb0f43f[m HEAD@{3}: commit: v8.7.3 git ls installing
+[33m79a35c4b[m HEAD@{4}: commit: v8.7.2.2 Netcode for character, CharacternetworkManager included, revised camera System.
+[33mb72b4f3b[m HEAD@{5}: commit: v.8.7.2.1 fixed error
+[33mfb1dd13a[m HEAD@{6}: commit: v8.7.2 2d update, potion graphic, main title, netcode for object added
+[33m3fa410f5[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{7}: pull --no-commit origin master: Fast-forward
+[33m8922c600[m HEAD@{8}: commit: v8.7 [wip] character damage based on item, 2d sprite, 2d testscene for minigames
+[33me6f0ed79[m HEAD@{9}: commit: [wip] taking damage
+[33m131ef467[m HEAD@{10}: pull --no-commit origin master: Fast-forward
+[33m687ed7b3[m HEAD@{11}: commit: v8.6.7 [wip] charactereffectmanager
+[33m522c8946[m HEAD@{12}: commit: v8.6.6 introduction to weapon based attack
+[33mb75d884b[m HEAD@{13}: commit: v.8.6.5 animation added
+[33m87552d8d[m HEAD@{14}: pull --no-commit origin master: Fast-forward
+[33mea75079b[m HEAD@{15}: commit: v.8.6.4 animation added(IdleTopR,SlashTopRtoBottomL)
+[33mc27b60c0[m HEAD@{16}: merge origin/master: Merge made by the 'ort' strategy.
+[33mc755699d[m HEAD@{17}: commit: v8.6.3 animation
+[33m0061ce8d[m HEAD@{18}: pull origin master: Fast-forward
+[33mc1c4e431[m HEAD@{19}: commit: v8.5 added poke animation(to be fined tuned)
+[33m5b3d72cc[m HEAD@{20}: commit: v8.4 부위별체력, 데미지 추가. IDamage 변경.
+[33m2e27c0d1[m HEAD@{21}: pull origin master: Fast-forward
+[33me62f6e1b[m HEAD@{22}: commit: v8.3 getting back up animation added, WOP damage per body part
+[33m8ec70f93[m HEAD@{23}: commit: v8.2
+[33m0c2572c9[m HEAD@{24}: pull origin master: Fast-forward
+[33md826c804[m HEAD@{25}: commit: v8
+[33ma228a0aa[m HEAD@{26}: commit: v7, aiming mod by num1, attack stance by left click, cancle by right click.
+[33m3b560244[m HEAD@{27}: pull origin master: Fast-forward
+[33m435e65b7[m HEAD@{28}: revert: Reapply "v5"
+[33m8d11d54b[m HEAD@{29}: revert: Revert "v5"
+[33m082dddd3[m HEAD@{30}: commit: v5
+[33m80b45b10[m HEAD@{31}: pull origin master: Fast-forward
+[33ma8a2c70c[m HEAD@{32}: commit: v4
+[33m1c743a94[m HEAD@{33}: pull origin master: Fast-forward
+[33m7524736e[m HEAD@{34}: pull origin master: Fast-forward
+[33m8eff1188[m HEAD@{35}: clone: from https://github.com/Ethaniya0912/usc-.git
